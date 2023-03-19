@@ -6,27 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style/reset.css" />
     <link rel="stylesheet" href="./style/style.css" />
-    
     <title>Weartake</title>
   </head>
+
   <body>
+
     <header>
       <div class="header-container">
         <h1>Weartake</h1>
         <nav>
           <ul class="header-menu">
-            <li>Todos</li>
-            <li>Acessórios</li>
-            <li>Camisetas</li>
+            <li><button id="btnAll">Todos</button></li>
+            <li><button id="btnAccessory">Acessórios</button> </li>
+            <li><button id="btnShirt">Camisetas</button> </li>
           </ul>
         </nav>
       </div>
     </header>
+
     <main>
+
       <section class="main-cards">
-        <ul></ul>
+        <ul id="cards"></ul>
       </section>
+
       <section class="main-details">
+
         <div class="main-search">
           <input
             class="search-input"
@@ -35,33 +40,44 @@
           />
           <button class="search-button">Pesquisar</button>
         </div>
+
         <aside>
+
           <div class="cart-title">
             <h4>Carrinho de compras</h4>
           </div>
+
           <div class="cart-empty">
-            <h5>Carrinho Vazio</h5>
-            <p>Adicione Itens</p>
+            <div class="empty">
+              <h5>Carrinho Vazio</h5>
+              <p>Adicione Itens</p>
+            </div>
           </div>
 
           <div class="cart-products">
             <ul class="cart-list"></ul>
           </div>
+
           <div class="cart-details">
+
             <div class="details-values">
-              <p>Quantidade:</p><span>0</span>
+              <p>Quantidade:</p><span id="count">0</span>
             </div>
+
             <div class="details-values">
               <p>Total:</p>
-              <span>R$0,00</span>
+              <span id="countValue">R$0,00</span>
             </div>
 
           </div>
 
-          
           </div>
         </aside>
+
       </section>
+
     </main>
+    <script src="script/database.js"></script>
+    <script src="script/index.js"></script>
   </body>
 </html>
