@@ -14,9 +14,8 @@ if (total == 0) {
     document.querySelector(".cart-details").style.display = 'none'
 }
 function CreateProductCard(dataBase) {
-    document.querySelector("#btnAll").style.color = '#2e245e'
-    // document.querySelector("#btnAccessory").style.color = '#a19c9c'
-    // document.querySelector("#btnShirt").style.color = '#a19c9c'
+    document.querySelector("#btnAll").style.color = '#ff0000'
+
     ulCard.innerHTML = ""
     for (let i = 0; i < dataBase.length; i++) {
         let shopping = dataBase[i]
@@ -47,6 +46,7 @@ function CreateProductCard(dataBase) {
             productCount++;
             let idElement = e.target.id
             let id = parseInt(idElement.substring(2))
+
  
             let product = SearchProducts(id)
             let elementCart = createCartCard(product)
@@ -124,10 +124,10 @@ function createCartCard(Cart) {
         total = total -= productValue       
         document.querySelector("#countValue").innerHTML = `R$${total},00`
 
-        if (total == -60) {
+        if (total == -150) {
             total = 0
             document.querySelector("#countValue").innerHTML = `R$${total},00`
-        }else if (total == 60) {
+        }else if (total == 150) {
             total = 0
             document.querySelector("#countValue").innerHTML = `R$${total},00`
         }
@@ -178,15 +178,15 @@ function filterAccessory(list) {
 
 }
 
-let input = document.querySelector(".search-input")
+let btnSearch = document.querySelector(".search-button")
 let inputSearch = document.querySelector(".main-cards")
 
 function search(list) {
+    let input = document.querySelector(".search-input")
     let expression = input.value.toLowerCase()
     let temp = []
 
     for (let i = 0; i < list.length; i++) {
-
         if (list[i].nameItem.toLowerCase() === expression) {
             temp.push(list[i])
         }
@@ -195,18 +195,18 @@ function search(list) {
     return temp
 }
 
-input.addEventListener('keyup', () => {
-    
+btnSearch.addEventListener('click', function(){
+
     let filter = search(data)
     CreateProductCard(filter)
-    
-}) 
+
+})
 
 CreateProductCard(data)
 
 document.querySelector("#btnAll").addEventListener('click', function(e){
     CreateProductCard(data)
-    document.querySelector("#btnAll").style.color = '#2e245e'
+    document.querySelector("#btnAll").style.color = '#ff0000'
     document.querySelector("#btnAccessory").style.color = ''
     document.querySelector("#btnShirt").style.color = ''
 })
@@ -215,7 +215,7 @@ document.querySelector("#btnAccessory").addEventListener('click', function(e){
     let filter = filterAccessory(data)
     CreateProductCard(filter)
     console.log(filterAccessory(data))
-    document.querySelector("#btnAccessory").style.color = '#2e245e'
+    document.querySelector("#btnAccessory").style.color = '#ff0000'
     document.querySelector("#btnAll").style.color = ''
     document.querySelector("#btnShirt").style.color = ''
 })
@@ -223,7 +223,7 @@ document.querySelector("#btnAccessory").addEventListener('click', function(e){
 document.querySelector("#btnShirt").addEventListener('click', function(e){
     let filter = FilterProductsShirt(data)
     CreateProductCard(filter)
-    document.querySelector("#btnShirt").style.color = '#2e245e' 
+    document.querySelector("#btnShirt").style.color = '#ff0000' 
     document.querySelector("#btnAll").style.color = '' 
     document.querySelector("#btnAccessory").style.color = ''
 })
